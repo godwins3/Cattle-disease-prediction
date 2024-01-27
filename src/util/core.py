@@ -109,7 +109,7 @@ def plotScatterMatrix(df, plotSize, textSize):
     for i, j in zip(*plt.np.triu_indices_from(ax, k = 1)):
         ax[i, j].annotate('Corr. coef = %.3f' % corrs[i, j], (0.8, 0.2), xycoords='axes fraction', ha='center', va='center', size=textSize)
     plt.suptitle('Scatter and Density Plot')
-    plt.show()
+    # plt.show()
 
 # plotPerColumnDistribution(df, 10, 5)
 
@@ -157,9 +157,9 @@ Project LINK:- **Github:**https://github.com/godwins3/Cattle-disease-prediction
 #list1 = DF['prognosis'].unique()
 def scatterplt(disea):
     x = ((DF.loc[disea]).sum())#total sum of symptom reported for given disease
-    x.drop(x[x==0].index,inplace=True)#droping symptoms with values 0
+    x.drop(x[x==0].index,inplace=True)# dropping symptoms with values 0
     print(x.values)
-    y = x.keys()#storing nameof symptoms in y
+    y = x.keys()#storing name of symptoms in y
     print(len(x))
     print(len(y))
     plt.title(disea)
@@ -227,15 +227,6 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     else:
         pred1.set(" ")
         pred1.set("Not Found")
-    #Creating the database if not exists named as database.db and creating table if not exists named as DecisionTree using sqlite3
-    import sqlite3
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS DecisionTree(Name StringVar,Symtom1 StringVar,Symtom2 StringVar,Symtom3 StringVar,Symtom4 TEXT,Symtom5 TEXT,Disease StringVar)")
-    c.execute("INSERT INTO DecisionTree(Name,Symtom1,Symtom2,Symtom3,Symtom4,Symtom5,Disease) VALUES(?,?,?,?,?,?,?)",(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5,pred1))
-    conn.commit()
-    c.close()
-    conn.close()
 
     #printing scatter plot of input symptoms
     #printing scatter plot of disease predicted vs its symptoms
@@ -283,15 +274,7 @@ def randomforest(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     else:
         pred2.set(" ")
         pred2.set("Not Found")
-        #Creating the database if not exists named as database.db and creating table if not exists named as RandomForest using sqlite3
-    import sqlite3
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS RandomForest(Name StringVar,Symtom1 StringVar,Symtom2 StringVar,Symtom3 StringVar,Symtom4 TEXT,Symtom5 TEXT,Disease StringVar)")
-    c.execute("INSERT INTO RandomForest(Name,Symtom1,Symtom2,Symtom3,Symtom4,Symtom5,Disease) VALUES(?,?,?,?,?,?,?)",(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5,pred2))
-    conn.commit()
-    c.close()
-    conn.close()
+    
     #printing scatter plot of disease predicted vs its symptoms
     scatterplt(pred2)
 
