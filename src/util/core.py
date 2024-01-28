@@ -54,7 +54,7 @@ disease=['mastitis','blackleg','bloat','coccidiosis','cryptosporidiosis',
 l2=[]
 for i in range(0,len(l1)):
     l2.append(0)
-print(l2)
+# print(l2)
 
 #Reading the Cattle training Dataset .csv file
 df=pd.read_csv("Training.csv")
@@ -67,7 +67,7 @@ df.replace({'prognosis':{'mastitis':0,'blackleg':1,'bloat':2,'coccidiosis':3,'cr
 'traumatic_reticulitis':13,'calf_diphtheria':14,'foot_rot':15,'foot_and_mouth':16,'ragwort_poisoning':17,'wooden_tongue':18,'infectious_bovine_rhinotracheitis':19,
 'acetonaemia':20,'fatty_liver_syndrome':21,'calf_pneumonia':22,'schmallen_berg_virus':23,'trypanosomosis':24,'fog_fever':25}},inplace=True)
 #df.head()
-DF.head()
+# DF.head()
 
 df = pd.DataFrame(df)
 
@@ -91,7 +91,7 @@ def plotPerColumnDistribution(df, nGraphShown, nGraphPerRow):
         plt.xticks(rotation = 90)
         plt.title(f'{columnNames[i]} (column {i})')
     plt.tight_layout(pad = 1.0, w_pad = 1.0, h_pad = 1.0)
-    plt.show()
+    # plt.show()
 
 
 # Scatter and density plots
@@ -118,9 +118,9 @@ def plotScatterMatrix(df, plotSize, textSize):
 X= df[l1]
 y = df[["prognosis"]]
 np.ravel(y)
-print(X)
+# print(X)
 
-print(y)
+# print(y)
 
 #Reading the Cattle testing Dataset .csv file
 tr=pd.read_csv("Testing.csv")
@@ -134,16 +134,16 @@ tr.replace({'prognosis':{'mastitis':0,'blackleg':1,'bloat':2,'coccidiosis':3,'cr
 'acetonaemia':20,'fatty_liver_syndrome':21,'calf_pneumonia':22,'schmallen_berg_virus':23,'trypanosomosis':24,'fog_fever':25}},inplace=True)
 tr.head()
 
-plotPerColumnDistribution(tr, 10, 5)
+# plotPerColumnDistribution(tr, 10, 5)
 
-plotScatterMatrix(tr, 20, 10)
+# plotScatterMatrix(tr, 20, 10)
 
 X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
-print(X_test)
+# print(X_test)
 
-print(y_test)
+# print(y_test)
 
 """**To build the precision of the model, we utilized three distinctive algorithms which are as per the following**
 * Decision Tree algorithm
@@ -164,7 +164,7 @@ def scatterplt(disea):
     print(len(y))
     plt.title(disea)
     plt.scatter(y,x.values)
-    plt.show()
+    # plt.show()
 
 def scatterinp(sym1,sym2,sym3,sym4,sym5):
     x = [sym1,sym2,sym3,sym4,sym5]#storing input symptoms in y
@@ -182,7 +182,7 @@ def scatterinp(sym1,sym2,sym3,sym4,sym5):
     print(x)
     print(y)
     plt.scatter(x,y)
-    plt.show()
+    # plt.show()
 
 """# Decision Tree Algorithm"""
 
@@ -199,9 +199,9 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    print("Confusion matrix")
+    # print("Confusion matrix")
     conf_matrix=confusion_matrix(y_test,y_pred)
-    print(conf_matrix)
+    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -222,16 +222,17 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
 
 
     if (h=='yes'):
-        pred1.set(" ")
+        pred1 = " "
         pred1.set(disease[a])
     else:
-        pred1.set(" ")
-        pred1.set("Not Found")
+        pred1 = " "
+        pred1 = "Not Found "
 
     #printing scatter plot of input symptoms
     #printing scatter plot of disease predicted vs its symptoms
-    scatterinp(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5)
-    scatterplt(pred1)
+    # scatterinp(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5)
+    # scatterplt(pred1)
+    return pred1
 
 """# Random Forest Algorithm"""
 
@@ -248,9 +249,9 @@ def randomforest(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    print("Confusion matrix")
+    # print("Confusion matrix")
     conf_matrix=confusion_matrix(y_test,y_pred)
-    print(conf_matrix)
+    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -269,14 +270,15 @@ def randomforest(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
             h='yes'
             break
     if (h=='yes'):
-        pred2.set(" ")
-        pred2.set(disease[a])
+        pred2 =" "
+        pred2 = disease[a]
     else:
-        pred2.set(" ")
-        pred2.set("Not Found")
+        pred2 = " "
+        pred2 = "Not Found"
     
     #printing scatter plot of disease predicted vs its symptoms
-    scatterplt(pred2)
+    # scatterplt(pred2)
+    return pred2
 
 """# K-NearestNeighbour Algorithm"""
 
@@ -292,9 +294,9 @@ def KNN(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    print("Confusion matrix")
+    # print("Confusion matrix")
     conf_matrix=confusion_matrix(y_test,y_pred)
-    print(conf_matrix)
+    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -315,23 +317,16 @@ def KNN(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
 
 
     if (h=='yes'):
-        pred4.set(" ")
-        pred4.set(disease[a])
+        pred4 = " "
+        pred4 = disease[a]
     else:
-        pred4.set(" ")
-        pred4.set("Not Found")
-        #Creating the database if not exists named as database.db and creating table if not exists named as KNearestNeighbour using sqlite3
-    import sqlite3
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS KNearestNeighbour(Name StringVar,Symtom1 StringVar,Symtom2 StringVar,Symtom3 StringVar,Symtom4 TEXT,Symtom5 TEXT,Disease StringVar)")
-    c.execute("INSERT INTO KNearestNeighbour(Name,Symtom1,Symtom2,Symtom3,Symtom4,Symtom5,Disease) VALUES(?,?,?,?,?,?,?)",(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5,pred4))
-    conn.commit()
-    c.close()
-    conn.close()
+        pred4 = " "
+        pred4 = "Not Found "
+        
     #printing scatter plot of disease predicted vs its symptoms
 
-    scatterplt(pred4)
+    # scatterplt(pred4)
+    return pred4
 
 """# Naive Bayes Algorithm"""
 
@@ -347,9 +342,9 @@ def NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    print("Confusion matrix")
+    # print("Confusion matrix")
     conf_matrix=confusion_matrix(y_test,y_pred)
-    print(conf_matrix)
+    # print(conf_matrix)
 
     psymptoms = [Symptom1, Symptom2, Symptom3, Symptom4, Symptom5]
     for k in range(0,len(l1)):
@@ -367,19 +362,22 @@ def NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
             h='yes'
             break
     if (h=='yes'):
-        pred3.set(" ")
+        pred3 = " "
         pred3.set(disease[a])
     else:
-        pred3.set(" ")
-        pred3.set("Not Found")
-        #Creating the database if not exists named as database.db and creating table if not exists named as NaiveBayes using sqlite3
-    import sqlite3
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS NaiveBayes(Name StringVar,Symtom1 StringVar,Symtom2 StringVar,Symtom3 StringVar,Symtom4 TEXT,Symtom5 TEXT,Disease StringVar)")
-    c.execute("INSERT INTO NaiveBayes(Name,Symtom1,Symtom2,Symtom3,Symtom4,Symtom5,Disease) VALUES(?,?,?,?,?,?,?)",(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5,pred3))
-    conn.commit()
-    c.close()
-    conn.close()
+        pred3 = " "
+        pred3 = "Not Found "
     #printing scatter plot of disease predicted vs its symptoms
-    scatterplt(pred3)
+    # scatterplt(pred3)
+    return pred3
+
+
+Symptom1 = 'anorexia'
+Symptom2 = 'abdominal_pain'
+Symptom3 = 'anaemia'
+Symptom4 = 'abortions'
+Symptom5 = 'acetone'
+
+answer, diagnose = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+# print(answer)
+print('prediction is: ', diagnose)
