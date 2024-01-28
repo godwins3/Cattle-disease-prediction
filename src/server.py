@@ -10,13 +10,7 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-
-    return render_template('index.html')
-
-
-@app.route('/disease-predict', methods = ['GET', 'POST'])
-def get_symptoms():
-    return render_template('disease.html')
+    return {"Message": "hooray server is running", "statusCode": 200}
 
 @app.route('/disease-prediction', methods = ['GET', 'POST'])
 def disease_predict():
@@ -32,6 +26,9 @@ def disease_predict():
     nb_predict = NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
     dt_predict = DecisionTree(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
 
-
-    
-    return render_template('disease_result', rf_predict = rf_predict, nb_predict = nb_predict, dt_predict = dt_predict)
+    return {
+        'rf_predict': rf_predict,
+        'nb_predict': nb_predict,
+        'dt_predict': dt_predict,
+        'statusCode': 200
+    }
