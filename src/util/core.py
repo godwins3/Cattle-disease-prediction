@@ -48,17 +48,14 @@ disease=['mastitis','blackleg','bloat','coccidiosis','cryptosporidiosis',
         'traumatic_reticulitis','calf_diphtheria','foot_rot','foot_and_mouth','ragwort_poisoning','wooden_tongue','infectious_bovine_rhinotracheitis',
 'acetonaemia','fatty_liver_syndrome','calf_pneumonia','schmallen_berg_virus','trypanosomosis','fog_fever']
 
-#disease = [df['prognosis'].unique()]
-#print(disease)
-
 l2=[]
 for i in range(0,len(l1)):
     l2.append(0)
-# print(l2)
 
 #Reading the Cattle training Dataset .csv file
 df=pd.read_csv("Training.csv")
 DF= pd.read_csv('Training.csv', index_col='prognosis')
+
 #Replace the values in the imported file by pandas by the inbuilt function replace in pandas.
 
 df.replace({'prognosis':{'mastitis':0,'blackleg':1,'bloat':2,'coccidiosis':3,'cryptosporidiosis':4,
@@ -66,8 +63,6 @@ df.replace({'prognosis':{'mastitis':0,'blackleg':1,'bloat':2,'coccidiosis':3,'cr
 'rift_valley_fever':11,'rumen_acidosis':12,
 'traumatic_reticulitis':13,'calf_diphtheria':14,'foot_rot':15,'foot_and_mouth':16,'ragwort_poisoning':17,'wooden_tongue':18,'infectious_bovine_rhinotracheitis':19,
 'acetonaemia':20,'fatty_liver_syndrome':21,'calf_pneumonia':22,'schmallen_berg_virus':23,'trypanosomosis':24,'fog_fever':25}},inplace=True)
-#df.head()
-# DF.head()
 
 df = pd.DataFrame(df)
 
@@ -111,16 +106,10 @@ def plotScatterMatrix(df, plotSize, textSize):
     plt.suptitle('Scatter and Density Plot')
     # plt.show()
 
-# plotPerColumnDistribution(df, 10, 5)
-
-# plotScatterMatrix(df, 20, 10)
 
 X= df[l1]
 y = df[["prognosis"]]
 np.ravel(y)
-# print(X)
-
-# print(y)
 
 #Reading the Cattle testing Dataset .csv file
 tr=pd.read_csv("Testing.csv")
@@ -134,16 +123,10 @@ tr.replace({'prognosis':{'mastitis':0,'blackleg':1,'bloat':2,'coccidiosis':3,'cr
 'acetonaemia':20,'fatty_liver_syndrome':21,'calf_pneumonia':22,'schmallen_berg_virus':23,'trypanosomosis':24,'fog_fever':25}},inplace=True)
 tr.head()
 
-# plotPerColumnDistribution(tr, 10, 5)
-
-# plotScatterMatrix(tr, 20, 10)
 
 X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
-# print(X_test)
-
-# print(y_test)
 
 """**To build the precision of the model, we utilized three distinctive algorithms which are as per the following**
 * Decision Tree algorithm
@@ -193,15 +176,12 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     clf3 = tree.DecisionTreeClassifier()
     clf3 = clf3.fit(X,y)
 
-    from sklearn.metrics import classification_report,confusion_matrix,accuracy_score
+    from sklearn.metrics import accuracy_score
     y_pred=clf3.predict(X_test)
     print("Decision Tree")
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    # print("Confusion matrix")
-    conf_matrix=confusion_matrix(y_test,y_pred)
-    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -228,10 +208,6 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
         pred1 = " "
         pred1 = "Not Found "
 
-    #printing scatter plot of input symptoms
-    #printing scatter plot of disease predicted vs its symptoms
-    # scatterinp(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5)
-    # scatterplt(pred1)
     return pred1
 
 """# Random Forest Algorithm"""
@@ -249,9 +225,6 @@ def randomforest(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    # print("Confusion matrix")
-    conf_matrix=confusion_matrix(y_test,y_pred)
-    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -275,9 +248,6 @@ def randomforest(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     else:
         pred2 = " "
         pred2 = "Not Found"
-    
-    #printing scatter plot of disease predicted vs its symptoms
-    # scatterplt(pred2)
     return pred2
 
 """# K-NearestNeighbour Algorithm"""
@@ -294,9 +264,6 @@ def KNN(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    # print("Confusion matrix")
-    conf_matrix=confusion_matrix(y_test,y_pred)
-    # print(conf_matrix)
 
     psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
 
@@ -321,11 +288,8 @@ def KNN(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
         pred4 = disease[a]
     else:
         pred4 = " "
-        pred4 = "Not Found "
-        
-    #printing scatter plot of disease predicted vs its symptoms
-
-    # scatterplt(pred4)
+        pred4 = "Not Found"
+    
     return pred4
 
 """# Naive Bayes Algorithm"""
@@ -342,9 +306,6 @@ def NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
     print("Accuracy")
     print(accuracy_score(y_test, y_pred))
     print(accuracy_score(y_test, y_pred,normalize=False))
-    # print("Confusion matrix")
-    conf_matrix=confusion_matrix(y_test,y_pred)
-    # print(conf_matrix)
 
     psymptoms = [Symptom1, Symptom2, Symptom3, Symptom4, Symptom5]
     for k in range(0,len(l1)):
@@ -366,18 +327,17 @@ def NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
         pred3.set(disease[a])
     else:
         pred3 = " "
-        pred3 = "Not Found "
-    #printing scatter plot of disease predicted vs its symptoms
-    # scatterplt(pred3)
+        pred3 = "Not Found"
     return pred3
 
+# tests
 
-Symptom1 = 'anorexia'
-Symptom2 = 'abdominal_pain'
-Symptom3 = 'anaemia'
-Symptom4 = 'abortions'
-Symptom5 = 'acetone'
+# Symptom1 = 'anorexia'
+# Symptom2 = 'abdominal_pain'
+# Symptom3 = 'anaemia'
+# Symptom4 = 'abortions'
+# Symptom5 = 'acetone'
 
-diagnose = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+# diagnose = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
 
-print('prediction is: ', diagnose)
+# print('prediction is: ', diagnose)
