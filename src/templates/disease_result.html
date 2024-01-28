@@ -1,0 +1,38 @@
+
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 9rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
+            <p>Random Forest Prediction</p>
+            <p class="text-center" style="color: black; font-size: 22px;">{{ rf_predict }}</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 9rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
+            <p>Naive Bayes Prediction</p>
+            <p class="text-center" style="color: black; font-size: 22px;">{{ nb_predict }}</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 9rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
+            <p>Decision Tree Prediction</p>
+            <p class="text-center" style="color: black; font-size: 22px;">{{ dt_predict }}</p>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

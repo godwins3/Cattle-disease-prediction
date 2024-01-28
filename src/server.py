@@ -4,21 +4,34 @@ import os
 import flask
 from flask import request, Response, render_template
 from flask_cors import CORS, cross_origin
+from src.util.core import randomforest, KNN, DecisionTree, NaiveBayes
 
 app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    
+
     return render_template('index.html')
 
 
-@app.route('/input-symptoms', methods = ['GET', 'POST'])
+@app.route('/disease-predict', methods = ['GET', 'POST'])
 def get_symptoms():
-
     return render_template('disease.html')
 
-@app.route('/disease-recommend', methods = ['GET', 'POST'])
-def disease_recommend():
+@app.route('/disease-prediction', methods = ['GET', 'POST'])
+def disease_predict():
+    if request.method == 'POST':
+        data =request.form
+    Symptom1 = data['Symptom1']
+    Symptom2 = data['Symptom2']
+    Symptom3 = data['Symptom3']
+    Symptom4 = data['Symptom4']
+    Symptom5 = data['Symptom5']
 
-    return render_template()
+    rf_predict = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+    nb_predict = NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+    dt_predict = DecisionTree(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+
+
+    
+    return render_template('disease_result', rf_predict = rf_predict, nb_predict = nb_predict, dt_predict = dt_predict)
