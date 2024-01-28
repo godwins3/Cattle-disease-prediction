@@ -14,9 +14,9 @@
 								<br>
 								<h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
 								<p class="text-li mx-auto mt-2">
-									1. What crop to plant here? <br>
+									1. What symptom to plant here? <br>
 									2. What fertilizer to use? <br>
-									3. Which disease do your crop have ?</p>
+									3. Which disease do your symptom have ?</p>
 							</div>
 						</div>
 					</div>
@@ -34,13 +34,13 @@
 				<img src="{{ url_for('static', filename='images/core.jpg') }}" class="img-fluid" alt="" />
 			</div>
 			<div class="col-lg-6 core-right">
-				<h3 class="mt-4">Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase
+				<h3 class="mt-4">Improving Agriculture, Improving Lives, Cultivating symptoms To Make Farmers Increase
 					Profit.</h3>
 				<p class="mt-3">We use state-of-the-art machine learning and deep learning technologies to help you
 					guide through
 					the entire farming process. Make informed decisions to understand the demographics of your area,
 					understand the
-					factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
+					factors that affect your symptom and keep them healthy for a super awesome successful yield.</p>
 			</div>
 		</div>
 	</div>
@@ -54,12 +54,12 @@
 		<div class="row blog-grids">
 			<div class="col-lg-4 col-md-6 blog-left mb-lg-0 mb-sm-5 pb-lg-0 pb-5">
 				<img src="{{ url_for('static', filename='images/s3.jpg') }}" class="img-fluid" alt="" />
-				<a href="{{ url_for('crop_recommend') }}">
+				<a href="{{ url_for('symptom_recommend') }}">
 					<div class="blog-info">
 
-						<h4>Crop</h4>
+						<h4>symptom</h4>
 
-						<p class="mt-2"> Recommendation about the type of crops to be cultivated which is best suited
+						<p class="mt-2"> Recommendation about the type of symptoms to be cultivated which is best suited
 							for the respective conditions</p>
 					</div>
 				</a>
@@ -70,7 +70,7 @@
 					<div class="blog-info">
 						<h4>Fertilizer</h4>
 						<p class="mt-2">Recommendation about the type of fertilizer best suited for the particular soil
-							and the recommended crop</p>
+							and the recommended symptom</p>
 					</div>
 				</a>
 			</div>
@@ -81,8 +81,8 @@
 				<!-- <img src="images/s4.jpg" class="img-fliud" alt="" /> -->
 				<a href="{{ url_for('disease_prediction') }}">
 					<div class="blog-info">
-						<h4>Crop Disease</h4>
-						<p class="mt-2">Predicting the name and causes of crop disease and suggestions to cure it</p>
+						<h4>symptom Disease</h4>
+						<p class="mt-2">Predicting the name and causes of symptom disease and suggestions to cure it</p>
 					</div>
 				</a>
 			</div>

@@ -1,0 +1,342 @@
+<!-- {% extends 'layout.html' %} -->
+
+{% block body %}
+<style>
+  html body {
+    background-color: rgb(245, 245, 249);
+  }
+</style>
+<!--Form Section-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: black">
+  <b>Get informed advice on fertilizer based on soil</b>
+</h2>
+<br />
+
+<div
+  style="
+    width: 350px;
+    height: 40rem;
+    margin: 0px auto;
+    color: black;
+    border-radius: 25px;
+    padding: 10px 10px;
+  "
+>
+  <form method="POST" action="{{ url_for('disease_recommend') }}">
+    <div class="form-group">
+      <label for="Symptom1" style="font-size: 17px"
+        ><b>Symptom 1</b></label
+      >
+      <select
+        name="symptomname"
+        class="form-control"
+        id="symptom"
+        placeholder="Select a symptom"
+        style="font-weight: bold"
+        required
+      >
+        <option selected>Select Symptoms</option>
+        <option>anorexia</option>
+        <option>abdominal_pain</option>
+        <option>anaemia</option>
+        <option>abortions</option>
+        <option>acetone</option>
+        <option>aggression</option>
+        <option>arthrogyposis</option>
+        <option>ankylosis</option>
+        <option>anxiety</option>
+        <option>bellowing</option>
+        <option>blood_loss</option>
+        <option>blood_poisoning</option>
+        <option>blisters</option>
+        <option>colic</option>
+        <option>Condemnation_of_livers</option>
+        <option>coughing</option>
+        <option>depression</option>
+        <option>discomfort</option>
+        <option>dyspnea</option>
+        <option>dysentery</option>
+        <option>diarrhoea</option>
+        <option>dehydration</option>
+        <option>drooling</option>
+        <option>dull</option>
+        <option>decreased_fertility</option>
+        <option>diffculty_breath</option>
+        <option>emaciation</option>
+        <option>encephalitis</option>
+        <option>fever</option>
+        <option>facial_paralysis</option>
+        <option>frothing_of_mouth</option>
+        <option>frothing</option>
+        <option>gaseous_stomach</option>
+        <option>highly_diarrhoea</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="Symptom2" style="font-size: 17px"
+          ><b>Symptom 2</b></label
+        >
+        <select
+          name="Symptom"
+          class="form-control"
+          id="symptom"
+          placeholder="Select a symptom"
+          style="font-weight: bold"
+          required
+        >
+          <option selected>Select Symptoms</option>
+          <option>anorexia</option>
+          <option>abdominal_pain</option>
+          <option>anaemia</option>
+          <option>abortions</option>
+          <option>acetone</option>
+          <option>aggression</option>
+          <option>arthrogyposis</option>
+          <option>ankylosis</option>
+          <option>anxiety</option>
+          <option>bellowing</option>
+          <option>blood_loss</option>
+          <option>blood_poisoning</option>
+          <option>blisters</option>
+          <option>colic</option>
+          <option>Condemnation_of_livers</option>
+          <option>coughing</option>
+          <option>depression</option>
+          <option>discomfort</option>
+          <option>dyspnea</option>
+          <option>dysentery</option>
+          <option>diarrhoea</option>
+          <option>dehydration</option>
+          <option>drooling</option>
+          <option>dull</option>
+          <option>decreased_fertility</option>
+          <option>diffculty_breath</option>
+          <option>emaciation</option>
+          <option>encephalitis</option>
+          <option>fever</option>
+          <option>facial_paralysis</option>
+          <option>frothing_of_mouth</option>
+          <option>frothing</option>
+          <option>gaseous_stomach</option>
+          <option>highly_diarrhoea</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Symptom2" style="font-size: 17px"
+          ><b>Symptom 2</b></label
+        >
+        <select
+          name="Symptom"
+          class="form-control"
+          id="symptom"
+          placeholder="Select a symptom"
+          style="font-weight: bold"
+          required
+        >
+          <option selected>Select Symptoms</option>
+          <option>anorexia</option>
+          <option>abdominal_pain</option>
+          <option>anaemia</option>
+          <option>abortions</option>
+          <option>acetone</option>
+          <option>aggression</option>
+          <option>arthrogyposis</option>
+          <option>ankylosis</option>
+          <option>anxiety</option>
+          <option>bellowing</option>
+          <option>blood_loss</option>
+          <option>blood_poisoning</option>
+          <option>blisters</option>
+          <option>colic</option>
+          <option>Condemnation_of_livers</option>
+          <option>coughing</option>
+          <option>depression</option>
+          <option>discomfort</option>
+          <option>dyspnea</option>
+          <option>dysentery</option>
+          <option>diarrhoea</option>
+          <option>dehydration</option>
+          <option>drooling</option>
+          <option>dull</option>
+          <option>decreased_fertility</option>
+          <option>diffculty_breath</option>
+          <option>emaciation</option>
+          <option>encephalitis</option>
+          <option>fever</option>
+          <option>facial_paralysis</option>
+          <option>frothing_of_mouth</option>
+          <option>frothing</option>
+          <option>gaseous_stomach</option>
+          <option>highly_diarrhoea</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Symptom3" style="font-size: 17px"
+          ><b>Symptom 3</b></label
+        >
+        <select
+          name="Symptom"
+          class="form-control"
+          id="symptom"
+          placeholder="Select a symptom"
+          style="font-weight: bold"
+          required
+        >
+          <option selected>Select Symptoms</option>
+          <option>anorexia</option>
+          <option>abdominal_pain</option>
+          <option>anaemia</option>
+          <option>abortions</option>
+          <option>acetone</option>
+          <option>aggression</option>
+          <option>arthrogyposis</option>
+          <option>ankylosis</option>
+          <option>anxiety</option>
+          <option>bellowing</option>
+          <option>blood_loss</option>
+          <option>blood_poisoning</option>
+          <option>blisters</option>
+          <option>colic</option>
+          <option>Condemnation_of_livers</option>
+          <option>coughing</option>
+          <option>depression</option>
+          <option>discomfort</option>
+          <option>dyspnea</option>
+          <option>dysentery</option>
+          <option>diarrhoea</option>
+          <option>dehydration</option>
+          <option>drooling</option>
+          <option>dull</option>
+          <option>decreased_fertility</option>
+          <option>diffculty_breath</option>
+          <option>emaciation</option>
+          <option>encephalitis</option>
+          <option>fever</option>
+          <option>facial_paralysis</option>
+          <option>frothing_of_mouth</option>
+          <option>frothing</option>
+          <option>gaseous_stomach</option>
+          <option>highly_diarrhoea</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Symptom4" style="font-size: 17px"
+          ><b>Symptom 4</b></label
+        >
+        <select
+          name="Symptom"
+          class="form-control"
+          id="symptom"
+          placeholder="Select a symptom"
+          style="font-weight: bold"
+          required
+        >
+          <option selected>Select Symptoms</option>
+          <option>anorexia</option>
+          <option>abdominal_pain</option>
+          <option>anaemia</option>
+          <option>abortions</option>
+          <option>acetone</option>
+          <option>aggression</option>
+          <option>arthrogyposis</option>
+          <option>ankylosis</option>
+          <option>anxiety</option>
+          <option>bellowing</option>
+          <option>blood_loss</option>
+          <option>blood_poisoning</option>
+          <option>blisters</option>
+          <option>colic</option>
+          <option>Condemnation_of_livers</option>
+          <option>coughing</option>
+          <option>depression</option>
+          <option>discomfort</option>
+          <option>dyspnea</option>
+          <option>dysentery</option>
+          <option>diarrhoea</option>
+          <option>dehydration</option>
+          <option>drooling</option>
+          <option>dull</option>
+          <option>decreased_fertility</option>
+          <option>diffculty_breath</option>
+          <option>emaciation</option>
+          <option>encephalitis</option>
+          <option>fever</option>
+          <option>facial_paralysis</option>
+          <option>frothing_of_mouth</option>
+          <option>frothing</option>
+          <option>gaseous_stomach</option>
+          <option>highly_diarrhoea</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Symptom5" style="font-size: 17px"
+          ><b>Symptom 5</b></label
+        >
+        <select
+          name="Symptom"
+          class="form-control"
+          id="symptom"
+          placeholder="Select a symptom"
+          style="font-weight: bold"
+          required
+        >
+          <option selected>Select Symptoms</option>
+          <option>anorexia</option>
+          <option>abdominal_pain</option>
+          <option>anaemia</option>
+          <option>abortions</option>
+          <option>acetone</option>
+          <option>aggression</option>
+          <option>arthrogyposis</option>
+          <option>ankylosis</option>
+          <option>anxiety</option>
+          <option>bellowing</option>
+          <option>blood_loss</option>
+          <option>blood_poisoning</option>
+          <option>blisters</option>
+          <option>colic</option>
+          <option>Condemnation_of_livers</option>
+          <option>coughing</option>
+          <option>depression</option>
+          <option>discomfort</option>
+          <option>dyspnea</option>
+          <option>dysentery</option>
+          <option>diarrhoea</option>
+          <option>dehydration</option>
+          <option>drooling</option>
+          <option>dull</option>
+          <option>decreased_fertility</option>
+          <option>diffculty_breath</option>
+          <option>emaciation</option>
+          <option>encephalitis</option>
+          <option>fever</option>
+          <option>facial_paralysis</option>
+          <option>frothing_of_mouth</option>
+          <option>frothing</option>
+          <option>gaseous_stomach</option>
+          <option>highly_diarrhoea</option>
+        </select>
+      </div>
+        
+  
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-info"
+        style="
+          color: black;
+          font-weight: bold;
+          width: 130px;
+          height: 50px;
+          border-radius: 12px;
+          font-size: 21px;
+        "
+      >
+        Predict
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

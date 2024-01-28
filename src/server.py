@@ -9,6 +9,16 @@ app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        return upload()
+    
     return render_template('index.html')
+
+
+@app.route('/input-symptoms', methods = ['GET', 'POST'])
+def get_symptoms():
+
+    return render_template('disease.html')
+
+@app.route('/disease-recommend', methods = ['GET', 'POST'])
+def disease_recommend():
+
+    return render_template()
