@@ -378,6 +378,6 @@ Symptom3 = 'anaemia'
 Symptom4 = 'abortions'
 Symptom5 = 'acetone'
 
-answer, diagnose = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
-# print(answer)
+diagnose = randomforest(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5)
+
 print('prediction is: ', diagnose)
