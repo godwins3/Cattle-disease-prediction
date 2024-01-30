@@ -203,7 +203,7 @@ def DecisionTree(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
 
     if (h=='yes'):
         pred1 = " "
-        pred1.set(disease[a])
+        pred1 = disease[a]
     else:
         pred1 = " "
         pred1 = "Not Found "
@@ -324,7 +324,7 @@ def NaiveBayes(Symptom1, Symptom2, Symptom3, Symptom4, Symptom5):
             break
     if (h=='yes'):
         pred3 = " "
-        pred3.set(disease[a])
+        pred3 = disease[a]
     else:
         pred3 = " "
         pred3 = "Not Found"

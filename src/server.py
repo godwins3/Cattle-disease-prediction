@@ -14,8 +14,8 @@ def home():
 
 @app.route('/disease-prediction', methods = ['GET', 'POST'])
 def disease_predict():
-    if request.method == 'POST':
-        data =request.form
+    # if request.method == 'POST':
+    data =flask.request.get_json()
     Symptom1 = data['Symptom1']
     Symptom2 = data['Symptom2']
     Symptom3 = data['Symptom3']
